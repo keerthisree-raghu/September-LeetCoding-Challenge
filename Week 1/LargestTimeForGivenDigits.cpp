@@ -21,7 +21,7 @@
     2. Check if the hour and minute conditions are satisfied.
         a. Hour < 24
         b. Minute < 60
-    3. Construct the time using the array values by converting each value to string.
+    3. Construct the time using the array values by converting each value to a string.
     4. Update the maximum time value if the current maximum is less than the new time.
     5. Iterate through the next permutation that satisfies the conditions.
 */
