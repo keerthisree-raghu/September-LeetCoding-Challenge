@@ -20,6 +20,7 @@
     2. Iterate through the string and track the last position of each character. Update the position when a new occurrence of the character is encountered.
     3. Iterate through the string and track the maximum position seen so far for each character and update it whenever a new character is encountered.
     4. If all the letters in the current partition [j, anchor] occur only in the current partition, append the length of this partition to the result.
+    5. Move the anchor to index (i + 1) to start the new partition.
 */
 
 // SOLUTION:
@@ -44,6 +45,7 @@ public:
             if(i == j) {
                 // Append the length of the current partition to the result
                 res.push_back(i - anchor + 1);
+                // New partition starts at position (i + 1)
                 anchor = i + 1;
             }
         }
