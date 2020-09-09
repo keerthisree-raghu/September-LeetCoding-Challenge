@@ -6,7 +6,7 @@
     Return a list containing all the integers from both trees sorted in ascending order.
 */
 
-/*  EXAMPLE:
+/*  EXAMPLES:
 
         2       1
        / \     / \
