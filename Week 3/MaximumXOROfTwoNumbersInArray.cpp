@@ -4,7 +4,7 @@
     Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 ≤ i ≤ j < n.
 
     Follow up: Could you do this in O(n) runtime?
-    */
+*/
 
 /*  EXAMPLE:
 

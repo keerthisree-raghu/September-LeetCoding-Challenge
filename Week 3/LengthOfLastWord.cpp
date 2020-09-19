@@ -7,7 +7,7 @@
 
     Note: 
     A word is defined as a maximal substring consisting of non-space characters only.
-    */
+*/
 
 /*  EXAMPLE:
 

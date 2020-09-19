@@ -12,7 +12,7 @@
     The robot performs the instructions given in order, and repeats them forever.
     Return true if and only if there exists a circle in the plane such that the 
     robot never leaves the circle.
-    */
+*/
 
 /*  EXAMPLES:
 
