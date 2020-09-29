@@ -7,6 +7,17 @@
 
     The input is always valid. You may assume that evaluating the queries will result in no division by 
     zero and there is no contradiction.
+
+    Constraints:
+    * 1 <= equations.length <= 20
+    * equations[i].length == 2
+    * 1 <= equations[i][0], equations[i][1] <= 5
+    * values.length == equations.length
+    * 0.0 < values[i] <= 20.0
+    * 1 <= queries.length <= 20
+    * queries[i].length == 2
+    * 1 <= queries[i][0], queries[i][1] <= 5
+    * equations[i][0], equations[i][1], queries[i][0], queries[i][1] consist of lower case English letters and digits.
 */
 
 /*  EXAMPLES:
@@ -26,10 +37,16 @@
 */
 
 /*  APPROACH: Depth-First-Search - O(V + E)
-    1. Construct an adjacency matrix for an equation "a / b = x", such that there are two edges formed: a->b and b->a, corresponding to the values x and 1/x, respectively.
-    2. Iterate through each query and call a DFS function on the current node and target node being the first and second values in the query, respectively.
+    DFS Helper Function:
+    1. If the node is not found in the graph or no path exists from the current node to the target node, return false.
+    2. If the target node has been found, return true.
     3. If a path is found between the current node and target node, multiply the values along the path to get the result.
-    4. If no path is found, return -1.0.
+    
+    Calculate Equation Function:
+    1. Construct an adjacency matrix for an equation "a / b = x", such that there are two edges formed: a->b and b->a, corresponding to the values x and 1/x, respectively.
+    2. Iterate through each query and recursively call the DFS function on the current node and target node being the first and second values in the query, respectively.
+    3. If the result is can be generated, push it into the resultant vector. 
+    4. If the result cannot be generated, return -1.0.
 
     Reference: https://leetcode.com/problems/evaluate-division/discuss/455817/C++-DFS-solution
 */
@@ -70,7 +87,7 @@ public:
             return false;
         }
     }
-    // Calculate equation
+    // Calculate Equation
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         unordered_map<string, vector<pair<string, double>>> adj;
         // Construct adjacency matrix for the graph
