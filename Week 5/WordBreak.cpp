@@ -39,13 +39,18 @@ using namespace std;
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
+        // Extract the unique words from the word dictionary
         unordered_set<string> words(wordDict.begin(), wordDict.end());
         int n = s.size();
+        // Boolean vector to check if a word is valid
         vector<bool> dp(n + 1, false);
         dp[0] = true;
         for(int i = 1; i <= n; i++) {
+            // Look back at the characters from the previous position till the beginning of the string
             for(int j = i - 1; j >= 0; j--) {
+                // Word is found in the dictionary
                 if(dp[j] == true && words.find(s.substr(j, i - j)) != words.end()) {
+                    // Valid word ends at index i
                     dp[i] = true;
                     break;
                 }
